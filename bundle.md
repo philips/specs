@@ -10,7 +10,13 @@ A standard container bundle is made of the following 3 parts:
 - One or more content directories
 - A configuration file
 
-# Directory layout
+## Use Cases
+
+This bundle specification enables users in the following cases:
+
+- A user can create a root filesystem and configuration, with low-level OS and host specific details, and launch it as a container under an Open Container runner.
+
+## Directory layout
 
 A Standard Container bundle is a directory containing all the content needed to load and run a container. This includes its configuration file (`config.json`) and content directories. The main property of this directory layout is that it can be moved as a unit to another machine and run the same container.
 
