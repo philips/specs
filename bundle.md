@@ -15,6 +15,7 @@ A standard container bundle is made of the following 3 parts:
 This bundle specification enables users in the following cases:
 
 - A user can create a root filesystem and configuration, with low-level OS and host specific details, and launch it as a container under an Open Container runner.
+- A user can move a root filesystem and configuration between hosts and have the container behave in the same way.
 
 ## Directory layout
 
