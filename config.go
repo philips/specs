@@ -5,6 +5,8 @@ package specs
 type Spec struct {
 	// Version is the version of the specification that is supported.
 	Version string `json:"version"`
+	// Name identifies this application bundle with a URL-like structure (e.g. example.com/app).
+	Name string `json:"name"`
 	// Platform is the host information for OS and Arch.
 	Platform Platform `json:"platform"`
 	// Process is the container's main process.

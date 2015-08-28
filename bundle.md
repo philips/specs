@@ -14,7 +14,7 @@ A standard container bundle is made of the following 3 parts:
 
 A Standard Container bundle is a directory containing all the content needed to load and run a container.
 This includes two configuration files `config.json` and `runtime.json`, and a rootfs directory.
-The `config.json` file contains settings that are host independent and application specific such as security permissions, environment variables and arguments.
+The `config.json` file contains settings that are host independent and application specific such as application name, security permissions, environment variables and arguments.
 The `runtime.json` file contains settings that are host specific such as memory limits, local device access and mount points.
 The goal is that the bundle can be moved as a unit to another machine and run the same application if `runtime.json` is removed or reconfigured.
 

@@ -18,6 +18,21 @@ Below is a detailed description of each field defined in the configuration forma
     "version": "0.1.0"
 ```
 
+## Name
+
+* **name** (string, required) a descriptive human readable URL-like string that identifies the application inside the bundle. The name must start with a fully-qualified domain name and be followed with any number of `/` separated strings after the domain name. The string SHOULD be URL encoded ([rfc3986 sec 2.1](https://tools.ietf.org/html/rfc3986#section-2.1)).
+
+*Example*
+
+```json
+    "name": "example.com/app"
+```
+
+Applications may use one of the reserved top level dns names ([rfc2606](http://tools.ietf.org/html/rfc2606)) for testing or placeholders for projects without a URL-like identity.
+
+By using a URL-like structure the spec can later leverage the globally distributed DNS namespace to find information about a bundle such as documentation, source, or mirrors of the bundle.
+Later specs may establish a convention to find bundle metadata by appending an `https://` scheme to the name and fetching the contents at that URL.
+
 ## Root Configuration
 
 Each container has exactly one *root filesystem*, specified in the *root* object:
