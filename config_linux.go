@@ -10,16 +10,16 @@ type LinuxSpec struct {
 // Linux contains platform specific configuration for linux based containers.
 type Linux struct {
 	// Capabilities are linux capabilities that are kept for the container.
-	Capabilities []string `json:"capabilities"`
+	Capabilities []string `json:"capabilities"` // optional, empty array and non-existent field are equivalent
 }
 
 // User specifies linux specific user and group information for the container's
 // main process.
 type User struct {
 	// UID is the user id.
-	UID uint32 `json:"uid"`
+	UID uint32 `json:"uid"` // required
 	// GID is the group id.
-	GID uint32 `json:"gid"`
+	GID uint32 `json:"gid"` // required
 	// AdditionalGids are additional group ids set for the container's process.
-	AdditionalGids []uint32 `json:"additionalGids"`
+	AdditionalGids []uint32 `json:"additionalGids"` // optional, empty array and non-existent field are equivalent
 }

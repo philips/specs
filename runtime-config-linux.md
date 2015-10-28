@@ -135,12 +135,19 @@ cgroups provide controls to restrict cpu, memory, IO, pids and network for the c
 For more information, see the [kernel cgroups documentation](https://www.kernel.org/doc/Documentation/cgroups/cgroups.txt).
 
 The path to the cgroups can be specified in the Spec via `cgroupsPath`.
-`cgroupsPath` is expected to be relative to the cgroups mount point.
-If not specified, cgroups will be created under '/'.
+`cgroupsPath` is expected to be relative to the cgroups mount point (e.g. /sys/fs/cgroups).
+If not specified, cgroups will be created under the parent cgroup along '/'.
 Implementations of the Spec can choose to name cgroups in any manner.
 The Spec does not include naming schema for cgroups.
 The Spec does not support [split hierarchy](https://www.kernel.org/doc/Documentation/cgroups/unified-hierarchy.txt).
 The cgroups will be created if they don't exist.
+
+Why do we not support split hierarchy? Because, on newer Kernels this is expected to break in the future. Non-unified Kernels will use the same path for all cgroup controllers.
+
+Compliant runtimes will mount the entire cgroup heirarchy as ro and optionally mount the cgroups path for the container as rw.
+Once the cgroups namespace support is merged into the kernel this will fix the information leak from the full cgroups tree.
+A process may introspect `/proc/self/cgroups` to find its own cgroup paths.
+
 
 ```json
    "cgroupsPath": "/myRuntime/myContainer"
